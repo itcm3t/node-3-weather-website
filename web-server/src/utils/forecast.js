@@ -9,9 +9,13 @@ const forecast = (latitude, longtitude , callback) => {
             callback('Unable to connect to weather service!', undefined)
         } else if (response.body.error) {
             callback('Unable to find location', undefined)
-         } //else {
-        //     callback(undefined, current.weather_descriptions + ' It is currently ' + current.temperature + ' degress out. There is a ' + current.precip + '% chance of rain.')
-        // }
+         } else {   
+            callback(undefined, current.weather_descriptions + 
+                ' It is currently ' + current.temperature + 
+                ' degress out. This high today is ' + body.daily.data[0].temperatureHigh + 
+                ' with a low of ' + body.daily.data[0].temperatureLow + 
+                '. There is a ' + current.precip + '% chance of rain.')
+         }
     })
 }
 
